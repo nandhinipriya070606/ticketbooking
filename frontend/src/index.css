@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  /* Spider-Man Palette */
+  --spider-red: #e62429;
+  --spider-red-bright: #ff1e27;
+  --spider-red-glow: rgba(230, 36, 41, 0.45);
+  --spider-red-dark: #8b0000;
+
+  --spider-blue: #0077b6;
+  --spider-blue-bright: #00b4d8;
+  --spider-blue-glow: rgba(0, 180, 216, 0.35);
+  --spider-blue-dark: #03045e;
+
+  --spider-gold: #ffbe0b;
+  --spider-gold-glow: rgba(255, 190, 11, 0.4);
+
+  --bg-dark: #07080d;
+  --bg-surface: rgba(13, 16, 28, 0.82);
+  --bg-surface-hover: rgba(21, 26, 44, 0.92);
+  --bg-card: rgba(16, 20, 35, 0.85);
+
+  --border-web: rgba(255, 255, 255, 0.1);
+  --border-red: rgba(230, 36, 41, 0.5);
+  --border-blue: rgba(0, 180, 216, 0.45);
+
+  --text-primary: #ffffff;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+
+  --success: #10b981;
+  --danger: #ef4444;
+
+  color: var(--text-primary);
+  background-color: var(--bg-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Dual Spider-Man Nebula & Web Lattice Overlay */
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(ellipse 70% 50% at 15% -10%, rgba(230, 36, 41, 0.28), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 85% -10%, rgba(0, 119, 182, 0.28), transparent 60%),
+    radial-gradient(circle 800px at 50% 100%, rgba(230, 36, 41, 0.15), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090a10;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--spider-red-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spider-red);
+}

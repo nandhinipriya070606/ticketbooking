@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.1
+    container_name: moviebooking-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: moviebooking
+      MYSQL_USER: movie
+      MYSQL_PASSWORD: Nandhini@07
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: moviebooking-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MYSQL_URL: jdbc:mysql://db:3306/moviebooking?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      MYSQL_USER: movie
+      MYSQL_PASSWORD: Nandhini@07
+    ports:
+      - '8080:8080'
+
+volumes:
+  db_data:
